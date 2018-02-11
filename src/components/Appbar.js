@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#265366',
     justifyContent: 'center',
     alignItems: 'center',
-    color: '#fff',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   appbarTitle: {
-    color: '#fff',
+    color: '#ffffff',
     fontSize: 18,
   },
 });

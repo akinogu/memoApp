@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   circleButtonTitle: {
     fontSize: 32,
     lineHeight: 32,
-    color: '#fff',
+    color: '#ffffff',
   },
 });
 
