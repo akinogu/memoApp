@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
 import firebase from 'firebase';
 import CircleButton from '../elements/CircleButton';
+import { NavigationActions } from 'react-navigation'
 
 export default class SignupScreen extends React.Component {
   state = {
@@ -12,14 +13,15 @@ export default class SignupScreen extends React.Component {
   handleSubmit() {
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then((user) => {
-        this.props.navigation.navigate('Home');
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'Home' }),
+          ],
+        });
+        this.props.navigation.dispatch(resetAction);
       })
-      .catch((error) => {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(error);
-        // ...
+      .catch(() => {
       });
   }
 
@@ -30,17 +32,17 @@ export default class SignupScreen extends React.Component {
           メンバー登録
         </Text>
 
-        <TextInput 
-          style={styles.input} 
-          value={this.state.email} 
-          onChangeText={(text) => this.setState({ email: text })} 
+        <TextInput
+          style={styles.input}
+          value={this.state.email}
+          onChangeText={(text) => this.setState({ email: text })}
           autoCapitalize="none"
           autoCorrect={false}
           placeholder="Email Address"
         />
-        <TextInput 
-          style={styles.input} 
-          value={this.state.password} 
+        <TextInput
+          style={styles.input}
+          value={this.state.password}
           onChangeText={(text) => this.setState({ password: text })}
           autoCapitalize="none"
           autoCorrect={false}

@@ -15,22 +15,21 @@ export default class MemoCreateScreen extends React.Component {
       body: this.state.body,
       createdOn: new Date(),
     })
-    .then((docRef) => {
-
+    .then(() => {
+      this.props.navigation.goBack();
     })
-    .catch((error) => {
-
+    .catch(() => {
     })
 
   }
-  // () => {this.props.navigation.goBack(); }
+
   render() {
     return (
       <View style={styles.container}>
-        <TextInput 
-          style={styles.memoEditInput} 
+        <TextInput
+          style={styles.memoEditInput}
           value={this.state.body}
-          onChangeText={(text) => this.setState({ body: text})} 
+          onChangeText={(text) => this.setState({ body: text})}
           multiline />
         <CircleButton onPress={this.handleSubmit.bind(this)}>{'\uf00c'}</CircleButton>
       </View>
