@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Platform } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import firebase from 'firebase';
 // import Appbar from './src/components/Appbar';
@@ -49,6 +49,18 @@ const App = StackNavigator({
     headerBackTitle: null,
     headerStyle: {
       backgroundColor: '#265366',
+      ...Platform.select({
+        android: {
+          paddingTop: 20,
+          height: 80,
+        },
+        ios: {
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.2,
+          shadowRadius: 2,
+        },
+      }),
     },
     headerTitleStyle: {
       color: '#fff',

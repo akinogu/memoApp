@@ -49,6 +49,8 @@ export default class MemoEditScreen extends React.Component {
           value={this.state.body}
           multiline
           onChangeText={(text) => {this.setState({ body: text })}}
+          underlineColorAndroid="transparent"
+          textAlignVertical="top"
         />
         <CircleButton
           onPress={this.handlePress.bind(this)}
