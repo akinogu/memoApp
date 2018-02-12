@@ -12,7 +12,7 @@ export default class LoginScreen extends React.Component {
   handleSubmit() {
 
   }
-  
+
   render() {
     return (
       <View style={styles.container}>
@@ -37,7 +37,7 @@ export default class LoginScreen extends React.Component {
           placeholder="Password"
           secureTextEntry
         />
-        <TouchableHighlight style={styles.button} onPress={this.handleSubmit.bint(this)}>
+        <TouchableHighlight style={styles.button} onPress={this.handleSubmit.bind(this)}>
           <Text style={styles.buttonTitle}>ログイン</Text>
         </TouchableHighlight>
       </View>
