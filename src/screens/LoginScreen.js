@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
-
+import firebase from 'firebase';
 import CircleButton from '../elements/CircleButton';
 
 export default class LoginScreen extends React.Component {
@@ -10,7 +10,13 @@ export default class LoginScreen extends React.Component {
   }
 
   handleSubmit() {
-
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then((user) => {
+        this.props.navigation.navigate('Home');
+      })
+      .catch((error) => {
+        console.log(error); 
+      })
   }
 
   render() {

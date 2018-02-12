@@ -19,13 +19,14 @@ const config = {
   storageBucket: ENV.FIREBASE_STRAGE_BUCKET,
   messagingSenderId: ENV.FIREBASE_MESSAGINGSENDER_ID,
 };
+firebase.initializeApp(config);
 
 const App = StackNavigator({
-  Login: {
-    screen: LoginScreen,
-  },
   Signup: {
     screen: SignupScreen,
+  },
+  Login: {
+    screen: LoginScreen,
   },
   Home: {
     screen: MemoListScreen,
