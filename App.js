@@ -9,6 +9,8 @@ import MemoEditScreen from './src/screens/MemoEditScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import ENV from './env.json';
+import MemoCreateScreen from './src/screens/MemoCreateScreen';
+require('firebase/firestore');
 
 // setting for firebase
 const config = {
@@ -22,11 +24,11 @@ const config = {
 firebase.initializeApp(config);
 
 const App = StackNavigator({
-  Signup: {
-    screen: SignupScreen,
-  },
   Login: {
     screen: LoginScreen,
+  },
+  Signup: {
+    screen: SignupScreen,
   },
   Home: {
     screen: MemoListScreen,
@@ -36,6 +38,9 @@ const App = StackNavigator({
   },
   MemoEdit: {
     screen: MemoEditScreen,
+  },
+  MemoCreate: {
+    screen: MemoCreateScreen,
   },
 }, {
   navigationOptions: {
