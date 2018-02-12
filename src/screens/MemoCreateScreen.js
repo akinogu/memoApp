@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, TextInput } from 'react-native';
 import firebase from 'firebase';
 import CircleButton from '../elements/CircleButton';
 
@@ -7,6 +7,7 @@ export default class MemoCreateScreen extends React.Component {
   state = {
     body: '',
   }
+
 
   handleSubmit() {
     const { currentUser } = firebase.auth();
@@ -25,7 +26,7 @@ export default class MemoCreateScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior="height" keyboardVerticalOffset={80}>
         <TextInput
           style={styles.memoEditInput}
           value={this.state.body}
@@ -33,7 +34,7 @@ export default class MemoCreateScreen extends React.Component {
           textAlignVertical="top"
           multiline />
         <CircleButton onPress={this.handleSubmit.bind(this)}>{'\uf00c'}</CircleButton>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
