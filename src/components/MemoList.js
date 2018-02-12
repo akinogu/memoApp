@@ -1,43 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, FlatList } from 'react-native';
 
 export default class MemoList extends React.Component {
+  renderMemo({item}) {
+    return (
+      <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+        <View style={styles.monoListItem}>
+          <Text style={styles.monoTitle}>
+            {item.body}
+          </Text>
+          <Text style={styles.monoDate}>
+            {item.body}
+          </Text>
+        </View>
+      </TouchableHighlight>
+    );
+  }
+  
   render() {
     return (
       <View style={styles.monoList}>
-
-        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
-          <View style={styles.monoListItem}>
-            <Text style={styles.monoTitle}>
-              講座のタイトル
-            </Text>
-            <Text style={styles.monoDate}>
-              2017/10/10
-            </Text>
-          </View>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
-          <View style={styles.monoListItem}>
-            <Text style={styles.monoTitle}>
-              講座のタイトル
-            </Text>
-            <Text style={styles.monoDate}>
-              2017/10/10
-            </Text>
-          </View>
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
-          <View style={styles.monoListItem}>
-            <Text style={styles.monoTitle}>
-              講座のタイトル
-            </Text>
-            <Text style={styles.monoDate}>
-              2017/10/10
-            </Text>
-          </View>
-        </TouchableHighlight>
+        <FlatList data={this.props.memoList} renderItem={this.renderMemo.bind(this)} />
       </View>
     );
   }

@@ -10,17 +10,18 @@ export default class MemoListScreen extends React.Component {
   }
   componentWillMount() {
     const { currentUser } = firebase.auth();
-    firebase.firestore().collection(`users/${currentUser.uid}/memos`)
+    const db = firebase.firestore();
+    db.collection(`users/${currentUser.uid}/memos`)
       .get()
       .then((snapshot) => {
         const memoList = [];
         snapshot.forEach((doc) => {
-          memoList.push(doc.data);
+          memoList.push({ ...doc.data(), key: doc.id });
         })
         this.setState({ memoList })
       })
       .catch((error) => {
-
+        console.log(error);
       })
   }
 
