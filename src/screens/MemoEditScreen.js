@@ -13,8 +13,8 @@ export default class MemoEditScreen extends React.Component {
     const { params } = this.props.navigation.state;
     console.log(params);
     this.setState({
-      body: params.memo.body,
-      key: params.memo.key,
+      body: params.body,
+      key: params.key,
     });
   }
 
