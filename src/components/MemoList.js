@@ -1,45 +1,43 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
 export default class MemoList extends React.Component {
   render() {
     return (
       <View style={styles.monoList}>
-        <View style={styles.monoListItem}>
-          <Text style={styles.monoTitle}>
-            講座のタイトル
-          </Text>
-          <Text style={styles.monoDate}>
-            2017/10/10
-          </Text>
-        </View>
 
-        <View style={styles.monoListItem}>
-          <Text style={styles.monoTitle}>
-            講座のタイトル
-          </Text>
-          <Text style={styles.monoDate}>
-            2017/10/10
-          </Text>
-        </View>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+          <View style={styles.monoListItem}>
+            <Text style={styles.monoTitle}>
+              講座のタイトル
+            </Text>
+            <Text style={styles.monoDate}>
+              2017/10/10
+            </Text>
+          </View>
+        </TouchableHighlight>
 
-        <View style={styles.monoListItem}>
-          <Text style={styles.monoTitle}>
-            講座のタイトル
-          </Text>
-          <Text style={styles.monoDate}>
-            2017/10/10
-          </Text>
-        </View>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+          <View style={styles.monoListItem}>
+            <Text style={styles.monoTitle}>
+              講座のタイトル
+            </Text>
+            <Text style={styles.monoDate}>
+              2017/10/10
+            </Text>
+          </View>
+        </TouchableHighlight>
 
-        <View style={styles.monoListItem}>
-          <Text style={styles.monoTitle}>
-            講座のタイトル
-          </Text>
-          <Text style={styles.monoDate}>
-            2017/10/10
-          </Text>
-        </View>
+        <TouchableHighlight onPress={() => {this.props.navigation.navigate('MemoDetail')}}>
+          <View style={styles.monoListItem}>
+            <Text style={styles.monoTitle}>
+              講座のタイトル
+            </Text>
+            <Text style={styles.monoDate}>
+              2017/10/10
+            </Text>
+          </View>
+        </TouchableHighlight>
       </View>
     );
   }
